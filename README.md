@@ -1,6 +1,6 @@
 # RetroGames-Cpp
 
-# rertroGames
+# Retro Games
 
 ## О проекте
 
