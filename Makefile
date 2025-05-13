@@ -76,7 +76,7 @@ dvi: clean
 
 dist: clean
 	@if [ $(TAR_EXISTS) -eq 1 ]; then \
-		tar -czf retro_games.tar.gz retro_games controller gui Dockerfile Doxyfile Makefile retro_games-fsm.png && echo "archived distrubutive retro_games.tar.gz was successfully created"; \
+		tar -czf retro_games.tar.gz retro_games controller gui Dockerfile Doxyfile Makefile && echo "archived distrubutive retro_games.tar.gz was successfully created"; \
 	else \
 		echo "The zip distribution could not be created, the tar archive was not found."; \
 		echo "if you use linux try install it: sudo apt install tar"; \
@@ -123,7 +123,7 @@ leaks: clean compile_test
 		echo "if you use linux try install it: sudo apt install valgrind"; \
 	fi;
 
-docker: clean
+docker_gcov: clean
 	docker build -t alpine_gpp .
 	docker run -d --name retro_games alpine_gpp sleep infinity
 	docker cp ./ retro_games:/app/
@@ -131,6 +131,10 @@ docker: clean
 	docker cp retro_games://app/tests ./
 	docker rm -f retro_games
 	open ./tests/index.html || powershell -Command "Start-Process ./tests/index.html"
+
+docker: clean
+	docker build -t alpine_gpp .
+	docker run --rm -it -v $(shell pwd):/app -w /app alpine_gpp /bin/sh -c "make console && ./retro_games_console && make clean"
 
 style:
 	clang-format -n -style=Google $(SOURCES_CLANG)

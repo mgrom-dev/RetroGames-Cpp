@@ -3,9 +3,9 @@
 
 #include <thread>
 
+#include "../gui/gameView.hpp"
 #include "../retro_games/snake/snakeLogic.hpp"
 #include "../retro_games/tetris/tetrisLogic.hpp"
-#include "../gui/gameView.hpp"
 #include "common.hpp"
 
 namespace s21 {

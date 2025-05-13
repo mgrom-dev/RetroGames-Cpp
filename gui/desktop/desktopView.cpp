@@ -137,7 +137,7 @@ static void showWinMenu(GameWindow* gameWindow) {
       "Thanks for playing\n"
       "press  Enter\n"
       "to try again\n"
-      "@by dylangog";
+      "@by mgrom-dev";
   gameWindow->showInfoMessage(msg);
 }
 

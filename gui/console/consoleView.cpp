@@ -374,7 +374,7 @@ static void showCredits() {
   printAtXY(2, posY + 1, "Thanks for playing");
   printAtXY(5, posY + 3, "press  Enter");
   printAtXY(5, posY + 4, "to try again");
-  printAtXY(5, posY + 6, "@by dylangog");
+  printAtXY(5, posY + 6, "@by mgrom-dev");
   moveToStart();
   flushOutput();
 }
